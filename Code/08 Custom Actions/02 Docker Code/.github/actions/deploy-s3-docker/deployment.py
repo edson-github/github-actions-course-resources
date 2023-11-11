@@ -18,8 +18,8 @@ def run():
             s3_client.upload_file(
                 os.path.join(root, file),
                 bucket,
-                os.path.join(root, file).replace(dist_folder + '/', ''),
-                ExtraArgs={"ContentType": mimetypes.guess_type(file)[0]}
+                os.path.join(root, file).replace(f'{dist_folder}/', ''),
+                ExtraArgs={"ContentType": mimetypes.guess_type(file)[0]},
             )
 
     website_url = f'http://{bucket}.s3-website-{bucket_region}.amazonaws.com'
